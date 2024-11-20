@@ -57,6 +57,10 @@ def main():
         if "encoder" in k:
             state[k.replace("encoder.", "")] = state[k]
         del state[k]
+
+        if "backbone" in k:
+            state[k.replace("backbone.", "")] = state[k]
+        del state[k]
     backbone.load_state_dict(state, strict=False)
 
     print(f"Loaded {ckpt_path}")
