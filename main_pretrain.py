@@ -161,9 +161,26 @@ def main():
     if args.resume_from_checkpoint:
         pass  # handled by the trainer
     elif args.pretrained_model:
-        print(f"Loading previous task checkpoint {args.pretrained_model}...")
-        state_dict = torch.load(args.pretrained_model, map_location="cpu")["state_dict"]
-        model.load_state_dict(state_dict, strict=False)
+        if args.task_idx == 0:
+            print(f"Loading previous task checkpoint {args.pretrained_model}...")
+            state_dict = torch.load(args.pretrained_model, map_location="cpu")["state_dict"]
+
+            # Filter out parameters for linear layers
+            filtered_state_dict = {k: v for k, v in state_dict.items() if
+                                   not k.startswith(("classifier", "momentum_classifier"))}
+
+            # Load the filtered state_dict
+            missing_keys, unexpected_keys = model.load_state_dict(filtered_state_dict, strict=False)
+
+            # Log missing and unexpected keys
+            if missing_keys:
+                print(f"Warning: Missing keys when loading state_dict: {missing_keys}")
+            if unexpected_keys:
+                print(f"Warning: Unexpected keys when loading state_dict: {unexpected_keys}")
+        else:
+            print(f"Loading previous task checkpoint {args.pretrained_model}...")
+            state_dict = torch.load(args.pretrained_model, map_location="cpu")["state_dict"]
+            model.load_state_dict(state_dict, strict=False)
 
     callbacks = []
 
