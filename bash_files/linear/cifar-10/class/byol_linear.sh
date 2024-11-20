@@ -17,7 +17,7 @@ python3 main_linear.py \
     --dali \
     --name byol-imagenet100-5T-linear-eval \
     --pretrained_feature_extractor /ppio_net0/code/cassle-latest/ckpt/byol-cifar10-32brzx9a-ep=999.ckpt \
-    --project ever-learn \
-    --entity unitn-mhug \
+    --entity pigpeppa \
+    --project tnnls \
     --wandb \
     --save_checkpoint
