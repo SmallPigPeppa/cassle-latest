@@ -15,8 +15,12 @@ python3 main_linear.py \
     --batch_size 256 \
     --num_workers 8 \
     --name byol-cifar10-5T-linear-eval \
-    --pretrained_feature_extractor /ppio_net0/code/cassle-latest/ckpt/byol-cifar10-32brzx9a-ep=999.ckpt \
+    --pretrained_feature_extractor /ppio_net0/code/cassle-latest/ckpt/byol-cifar100-predictive-task0-ep=499-uidf2phh.ckpt \
     --entity pigpeppa \
     --project tnnls \
     --wandb \
     --save_checkpoint
+
+
+#byol-cifar100-predictive-task0-ep=499-uidf2phh.ckpt
+#byol-cifar10-32brzx9a-ep=999.ckpt
