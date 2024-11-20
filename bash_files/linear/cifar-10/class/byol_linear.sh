@@ -3,7 +3,7 @@ python3 main_linear.py \
     --encoder resnet18 \
     --data_dir $DATA_DIR \
     --split_strategy class \
-    --num_tasks 5 \
+    --num_tasks 1 \
     --max_epochs 100 \
     --gpus 0 \
     --precision 16 \
@@ -14,7 +14,7 @@ python3 main_linear.py \
     --weight_decay 0 \
     --batch_size 256 \
     --num_workers 8 \
-    --name byol-imagenet100-5T-linear-eval \
+    --name byol-cifar10-5T-linear-eval \
     --pretrained_feature_extractor /ppio_net0/code/cassle-latest/ckpt/byol-cifar10-32brzx9a-ep=999.ckpt \
     --entity pigpeppa \
     --project tnnls \
