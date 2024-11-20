@@ -161,32 +161,33 @@ def main():
     if args.resume_from_checkpoint:
         pass  # handled by the trainer
     elif args.pretrained_model:
-        print(f"Loading previous task checkpoint {args.pretrained_model}...")
-        state_dict = torch.load(args.pretrained_model, map_location="cpu")["state_dict"]
+        if args.task_idx == 0:
+            print(f"Loading previous task checkpoint {args.pretrained_model}...")
+            state_dict = torch.load(args.pretrained_model, map_location="cpu")["state_dict"]
 
-        # 指定要过滤的关键字
-        excluded_keywords = ["classifier", "momentum_classifier"]
+            # 指定要过滤的关键字
+            excluded_keywords = ["classifier", "momentum_classifier"]
 
-        # 过滤并修改键名
-        filtered_state_dict = {}
-        for key, value in state_dict.items():
-            # 如果键包含指定的关键字，则跳过
-            if any(keyword in key for keyword in excluded_keywords):
-                continue
-            # 替换键名中的 'backbone' 为 'encoder'
-            new_key = key.replace("backbone", "encoder")
-            filtered_state_dict[new_key] = value
+            # 过滤并修改键名
+            filtered_state_dict = {}
+            for key, value in state_dict.items():
+                # 如果键包含指定的关键字，则跳过
+                if any(keyword in key for keyword in excluded_keywords):
+                    continue
+                # 替换键名中的 'backbone' 为 'encoder'
+                new_key = key.replace("backbone", "encoder")
+                filtered_state_dict[new_key] = value
 
-        # 加载修改后的 state_dict
-        missing_keys, unexpected_keys = model.load_state_dict(filtered_state_dict, strict=False)
+            # 加载修改后的 state_dict
+            missing_keys, unexpected_keys = model.load_state_dict(filtered_state_dict, strict=False)
 
-        # 打印未加载或多余的键
-        if missing_keys:
-            print(f"Warning: Missing keys when loading state_dict: {missing_keys}")
-        if unexpected_keys:
-            print(f"Warning: Unexpected keys when loading state_dict: {unexpected_keys}")
+            # 打印未加载或多余的键
+            if missing_keys:
+                print(f"Warning: Missing keys when loading state_dict: {missing_keys}")
+            if unexpected_keys:
+                print(f"Warning: Unexpected keys when loading state_dict: {unexpected_keys}")
 
-else:
+        else:
             print(f"Loading previous task checkpoint {args.pretrained_model}...")
             state_dict = torch.load(args.pretrained_model, map_location="cpu")["state_dict"]
             model.load_state_dict(state_dict, strict=False)
