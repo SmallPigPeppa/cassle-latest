@@ -8,7 +8,7 @@ python3 main_continual.py \
     --max_epochs 400 \
     --num_tasks 1 \
     --task_idx 0 \
-    --gpus 8 \
+    --gpus 0,1,2,3,4,5,6,7 \
     --accelerator ddp \
     --sync_batchnorm \
     --num_workers 5 \
