@@ -72,12 +72,12 @@ if __name__ == "__main__":
         task_args = copy.deepcopy(args)
 
         # add pretrained model arg
-        # if task_idx != 0 and task_idx != start_task_idx:
-        task_args.pop("--resume_from_checkpoint", None)
-        task_args.pop("--pretrained_model", None)
-        assert os.path.exists(last_checkpoint_file)
-        ckpt_path = open(last_checkpoint_file).readlines()[0].rstrip()
-        task_args["--pretrained_model"] = ckpt_path
+        if task_idx != 0 and task_idx != start_task_idx:
+            task_args.pop("--resume_from_checkpoint", None)
+            task_args.pop("--pretrained_model", None)
+            assert os.path.exists(last_checkpoint_file)
+            ckpt_path = open(last_checkpoint_file).readlines()[0].rstrip()
+            task_args["--pretrained_model"] = ckpt_path
 
         if task_idx != 0 and distill_args:
             task_args.update(distill_args)
