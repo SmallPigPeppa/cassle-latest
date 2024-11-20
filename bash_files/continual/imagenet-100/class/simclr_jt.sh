@@ -2,8 +2,8 @@ python3 main_continual.py \
     --dataset imagenet100 \
     --encoder resnet18 \
     --data_dir $DATA_DIR \
-    --train_dir imagenet-100/train \
-    --val_dir imagenet-100/val \
+    --train_dir imagenet100/train \
+    --val_dir imagenet100/val \
     --split_strategy class \
     --max_epochs 400 \
     --num_tasks 1 \
