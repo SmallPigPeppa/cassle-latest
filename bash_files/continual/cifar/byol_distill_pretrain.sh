@@ -38,4 +38,4 @@ python3 main_continual_pretrain.py \
     --final_tau_momentum 1.0 \
     --momentum_classifier \
     --distiller predictive \
-    --pretrained_model /ppio_net0/code/cassle-latest/ckpt/byol-400ep-imagenet100-17qno0qt-ep=399.ckpt
+    --pretrained_model /ppio_net0/code/cassle-latest/ckpt/byol-cifar10-32brzx9a-ep=999.ckpt
