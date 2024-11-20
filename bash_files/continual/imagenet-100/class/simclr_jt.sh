@@ -5,10 +5,10 @@ python3 main_continual.py \
     --train_dir imagenet100/train \
     --val_dir imagenet100/val \
     --split_strategy class \
-    --max_epochs 400 \
+    --max_epochs 200 \
     --num_tasks 1 \
     --task_idx 0 \
-    --gpus 0,1,2,3,4,5,6,7 \
+    --gpus 0,1,2,3 \
     --accelerator ddp \
     --sync_batchnorm \
     --num_workers 5 \
@@ -27,7 +27,7 @@ python3 main_continual.py \
     --saturation 0.8 \
     --hue 0.2 \
     --dali \
-    --check_val_every_n_epoch 9999 \
+    --check_val_every_n_epoch 10 \
     --name simclr-imagenet100-5T \
     --wandb \
     --save_checkpoint \
