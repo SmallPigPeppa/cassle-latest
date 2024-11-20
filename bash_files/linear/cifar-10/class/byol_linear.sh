@@ -14,7 +14,6 @@ python3 main_linear.py \
     --weight_decay 0 \
     --batch_size 256 \
     --num_workers 8 \
-    --dali \
     --name byol-imagenet100-5T-linear-eval \
     --pretrained_feature_extractor /ppio_net0/code/cassle-latest/ckpt/byol-cifar10-32brzx9a-ep=999.ckpt \
     --entity pigpeppa \
