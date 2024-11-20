@@ -56,7 +56,7 @@ def main():
     for k in list(state.keys()):
         if "encoder" in k:
             state[k.replace("encoder.", "")] = state[k]
-        del state[k]
+        # del state[k]
 
         if "backbone" in k:
             state[k.replace("backbone.", "")] = state[k]
