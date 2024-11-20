@@ -71,7 +71,14 @@ if __name__ == "__main__":
 
         task_args = copy.deepcopy(args)
 
-        # add pretrained model arg
+        # Add pretrained model arg for task_idx == 0
+        if task_idx == 0:
+            if "--pretrained_model" in args and os.path.exists(args["--pretrained_model"]):
+                task_args["--pretrained_model"] = args["--pretrained_model"]
+            else:
+                print("Warning: Pretrained model not provided for task_idx == 0. Training from scratch.")
+
+        # Add pretrained model for subsequent tasks
         if task_idx != 0 and task_idx != start_task_idx:
             task_args.pop("--resume_from_checkpoint", None)
             task_args.pop("--pretrained_model", None)
@@ -79,6 +86,7 @@ if __name__ == "__main__":
             ckpt_path = open(last_checkpoint_file).readlines()[0].rstrip()
             task_args["--pretrained_model"] = ckpt_path
 
+        # Add distillation arguments if necessary
         if task_idx != 0 and distill_args:
             task_args.update(distill_args)
 
