@@ -166,13 +166,15 @@ def main():
             state_dict = torch.load(args.pretrained_model, map_location="cpu")["state_dict"]
 
             # Filter out parameters containing specific substrings
-            excluded_keywords = ["classifier", "momentum_classifier"]
-            filtered_state_dict = {
-                k: v for k, v in state_dict.items() if not any(keyword in k for keyword in excluded_keywords)
-            }
+            # excluded_keywords = ["classifier", "momentum_classifier"]
+            # filtered_state_dict = {
+            #     k: v for k, v in state_dict.items() if not any(keyword in k for keyword in excluded_keywords)
+            # }
 
             # Load the filtered state_dict
-            missing_keys, unexpected_keys = model.load_state_dict(filtered_state_dict, strict=False)
+            # missing_keys, unexpected_keys = model.load_state_dict(filtered_state_dict, strict=False)
+            missing_keys, unexpected_keys = model.load_state_dict(state_dict, strict=False)
+
 
             # Log missing and unexpected keys
             if missing_keys:
