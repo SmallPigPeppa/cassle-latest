@@ -26,8 +26,8 @@ python3 main_continual.py \
     --gaussian_prob 0.0 0.0 \
     --solarization_prob 0.0 0.2 \
     --name byol-cifar100 \
-    --project ever-learn \
-    --entity unitn-mhug \
+    --entity pigpeppa \
+    --project tnnls \
     --wandb \
     --save_checkpoint \
     --method byol \
