@@ -7,6 +7,7 @@ python3 main_continual.py \
     --num_tasks 5 \
     --task_idx 0 \
     --gpus 0 \
+    --num_workers 4 \
     --precision 16 \
     --optimizer sgd \
     --lars \
@@ -14,26 +15,22 @@ python3 main_continual.py \
     --eta_lars 0.02 \
     --exclude_bias_n_norm \
     --scheduler warmup_cosine \
-    --lr 1.0 \
+    --lr 0.3 \
     --classifier_lr 0.1 \
-    --weight_decay 1e-5 \
+    --weight_decay 1e-4 \
     --batch_size 256 \
-    --num_workers 5 \
     --brightness 0.4 \
     --contrast 0.4 \
     --saturation 0.2 \
     --hue 0.1 \
     --gaussian_prob 0.0 0.0 \
     --solarization_prob 0.0 0.2 \
-    --name byol-cifar100-r50 \
+    --name barlow-cifar100-r50 \
     --entity pigpeppa \
     --project tnnls \
     --wandb \
     --save_checkpoint \
-    --method byol \
-    --output_dim 256 \
-    --proj_hidden_dim 4096 \
-    --pred_hidden_dim 4096 \
-    --base_tau_momentum 0.99 \
-    --final_tau_momentum 1.0 \
-    --momentum_classifier
+    --method barlow_twins \
+    --proj_hidden_dim 2048 \
+    --output_dim 2048 \
+    --scale_loss 0.1
