@@ -6,7 +6,7 @@ python3 main_continual.py \
     --max_epochs 500 \
     --num_tasks 5 \
     --task_idx 0 \
-    --gpus 0,1,2,3,4,5,6,7 \
+    --gpus 0 \
     --precision 16 \
     --optimizer sgd \
     --lars \
@@ -14,7 +14,7 @@ python3 main_continual.py \
     --eta_lars 0.02 \
     --exclude_bias_n_norm \
     --scheduler warmup_cosine \
-    --lr 0.125 \
+    --lr 1.0 \
     --classifier_lr 0.1 \
     --weight_decay 1e-5 \
     --batch_size 256 \
