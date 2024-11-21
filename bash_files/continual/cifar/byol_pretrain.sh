@@ -1,4 +1,4 @@
-python3 main_continual.py \
+python3 main_continual_pretrain.py \
     --dataset cifar100 \
     --encoder resnet18 \
     --data_dir $DATA_DIR \
