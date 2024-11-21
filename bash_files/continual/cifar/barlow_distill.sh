@@ -5,7 +5,7 @@ python3 main_continual.py \
     --split_strategy class \
     --max_epochs 500 \
     --num_tasks 5 \
-    --task_idx 1 \
+    --task_idx 0 \
     --gpus 0 \
     --num_workers 4 \
     --precision 16 \
@@ -26,13 +26,12 @@ python3 main_continual.py \
     --gaussian_prob 0.0 0.0 \
     --solarization_prob 0.0 0.2 \
     --name barlow-cifar100-decorrelative \
-    --project ever-learn \
-    --entity unitn-mhug \
+    --entity pigpeppa \
+    --project tnnls \
     --wandb \
     --save_checkpoint \
     --method barlow_twins \
     --proj_hidden_dim 2048 \
     --output_dim 2048 \
     --scale_loss 0.1 \
-    --distiller decorrelative \
-    --pretrained_model $PRETRAINED_PATH
+    --distiller decorrelative

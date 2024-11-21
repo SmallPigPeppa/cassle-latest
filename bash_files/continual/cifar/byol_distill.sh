@@ -5,7 +5,7 @@ python3 main_continual.py \
     --split_strategy class \
     --max_epochs 500 \
     --num_tasks 5 \
-    --task_idx 1 \
+    --task_idx 0 \
     --gpus 0 \
     --precision 16 \
     --optimizer sgd \
@@ -37,5 +37,4 @@ python3 main_continual.py \
     --base_tau_momentum 0.99 \
     --final_tau_momentum 1.0 \
     --momentum_classifier \
-    --distiller predictive \
-    --pretrained_model $PRETRAINED_PATH
+    --distiller predictive

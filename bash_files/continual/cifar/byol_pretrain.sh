@@ -25,7 +25,7 @@ python3 main_continual.py \
     --hue 0.1 \
     --gaussian_prob 0.0 0.0 \
     --solarization_prob 0.0 0.2 \
-    --name byol-cifar100 \
+    --name byol-cifar100-pretrain \
     --entity pigpeppa \
     --project tnnls \
     --wandb \
@@ -36,4 +36,5 @@ python3 main_continual.py \
     --pred_hidden_dim 4096 \
     --base_tau_momentum 0.99 \
     --final_tau_momentum 1.0 \
-    --momentum_classifier
+    --momentum_classifier \
+    --pretrained_model /ppio_net0/code/cassle-latest/ckpt/byol-cifar10-32brzx9a-ep=999.ckpt

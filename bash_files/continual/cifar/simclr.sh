@@ -26,8 +26,8 @@ python3 main_continual.py \
     --hue 0.2 \
     --gaussian_prob 0.0 0.0 \
     --name simclr-cifar100 \
-    --project ever-learn \
-    --entity unitn-mhug \
+    --entity pigpeppa \
+    --project tnnls \
     --wandb \
     --save_checkpoint \
     --method simclr \
