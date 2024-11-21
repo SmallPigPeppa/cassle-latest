@@ -5,7 +5,7 @@ python3 main_continual.py \
     --split_strategy class \
     --max_epochs 500 \
     --num_tasks 5 \
-    --task_idx 1 \
+    --task_idx 0 \
     --gpus 0 \
     --precision 16 \
     --optimizer sgd \
@@ -14,7 +14,7 @@ python3 main_continual.py \
     --eta_lars 0.02 \
     --exclude_bias_n_norm \
     --scheduler warmup_cosine \
-    --lr 1.0 \
+    --lr 0.125 \
     --classifier_lr 0.1 \
     --weight_decay 1e-5 \
     --batch_size 256 \
@@ -26,8 +26,8 @@ python3 main_continual.py \
     --gaussian_prob 0.0 0.0 \
     --solarization_prob 0.0 0.2 \
     --name byol-cifar100-predictive \
-    --project ever-learn \
-    --entity unitn-mhug \
+    --entity pigpeppa \
+    --project tnnls \
     --wandb \
     --save_checkpoint \
     --method byol \
@@ -37,5 +37,4 @@ python3 main_continual.py \
     --base_tau_momentum 0.99 \
     --final_tau_momentum 1.0 \
     --momentum_classifier \
-    --distiller predictive \
-    --pretrained_model $PRETRAINED_PATH
+    --distiller predictive
