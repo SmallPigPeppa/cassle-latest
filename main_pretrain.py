@@ -233,7 +233,6 @@ def main():
 
     trainer = Trainer.from_argparse_args(
         args,
-        strategy="ddp",
         logger=wandb_logger if args.wandb else None,
         callbacks=callbacks,
         checkpoint_callback=False,
